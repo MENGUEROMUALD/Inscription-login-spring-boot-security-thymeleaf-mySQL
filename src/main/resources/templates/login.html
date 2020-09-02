@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Connexion</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+	
+		<nav class="navbar navbar-dark bg-dark">
+		<div class="container">
+			<div class="navbar-header">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" 
+						aria-expanded="false" aria-controls="navbar">
+						<span class="navbar-toggler-icon"></span>
+				</button>
+				<a class="navbar-brand" href="#" th:href="@{/}">Module d'inscription et de login</a>
+			</div>
+		</div>
+	</nav>
+	<br/>
+	<br/>
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<h1>Connectez-vous ici !!!</h1>
+				
+				<form th:action="@{/login}" method="post">
+					<!-- Message d'erreur -->
+					<div th:if="${param.error}">
+						<div class="alert alert-danger">Username ou password incorrect !!!</div>
+					</div>
+					
+					<!-- Message de deconnexion -->
+					<div th:if="${param.logout}">
+						<div class="alert alert-info">Vous venez d'être déconnecté</div>
+					</div>
+					
+					<div class="form-group">
+						<label class="control-label" for="username">Nom utilisateur :</label>
+						<input type="text" class="form-control" id="username" name="username" placeholder="Adresse mail" autofocus="autofocus" />
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="password">Mot de passe :</label>
+						<input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe" autofocus="autofocus" />
+					</div>
+					
+					<div class="form-group">
+						<div class="row">
+							<div class="col-sm-6 col-sm-offset-3">
+								<input type="submit" name="login-submit" id="login-submit" class="btn btn-success" value="Connexion" />
+							</div>
+						</div>
+					</div>
+				</form>
+				
+					<div class="form-group">
+						<span>S'inscrire ? <a href="/" th:href="@{/registration}">s'inscrire ici</a></span>
+					</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
